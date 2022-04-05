@@ -1,0 +1,21 @@
+{
+  // editor 
+  "editor.formatOnSave": false,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.rulers": [
+    80,
+    120,
+    160
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  // typescript 
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.format.semicolons": "remove",
+  // git 
+  "git.inputValidation": "off"
+}

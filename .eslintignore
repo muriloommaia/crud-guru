@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+streams
+globalConfig.json
+.tmp
+.DS_Store
+package-lock.json 
