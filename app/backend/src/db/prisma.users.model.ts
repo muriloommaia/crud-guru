@@ -1,11 +1,12 @@
 import { Entity, User } from '../app/domain'
+import { UserCreate } from '../app/interfaces'
 import { prisma } from './client'
 export class PrismaUsersModel {
-  async getAllUsers(): Promise<any> {
+  async getAllUsers(): Promise<UserCreate[]> {
     return await prisma.user.findMany()
   }
 
-  async createUser(user: Omit<User, keyof Entity>): Promise<any> {
+  async createUser(user: Omit<User, keyof Entity>): Promise<UserCreate> {
     const { id, name, email } = await prisma.user.create({
       data: user
     })
