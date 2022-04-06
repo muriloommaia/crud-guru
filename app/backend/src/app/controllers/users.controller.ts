@@ -1,5 +1,5 @@
 import { usersValidator } from '../../validators'
-import { Entity, User } from '../domain'
+import { Entity, User, UserLogin } from '../domain'
 import { ResponseController, UserCreate } from '../interfaces/'
 import { UsersService } from '../services/users.service'
 export class UsersController {
@@ -19,6 +19,12 @@ export class UsersController {
     const validate = await usersValidator.create(user)
     const create = await this.userService.createUser(validate)
     return { status: 201, message: create }
+  }
+
+  async loginUser(user: UserLogin): Promise<ResponseController<string>> {
+    const validate = await usersValidator.login(user)
+    const create = await this.userService.loginUser(validate)
+    return { status: 200, message: create }
   }
 
   async deleteUser(id: number): Promise<ResponseController<boolean>> {

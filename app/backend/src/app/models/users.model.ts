@@ -16,7 +16,7 @@ export class UsersModel {
     return create
   }
 
-  async exists(email: string): Promise<boolean> {
+  async exists(email: string): Promise<User> {
     const exists = await this.db.exists(email)
     return exists
   }

@@ -13,13 +13,13 @@ export class PrismaUsersModel {
     return { id, name, email }
   }
 
-  async exists(email: string): Promise<boolean> {
+  async exists(email: string): Promise<User> {
     const exists = await prisma.user.findUnique({
       where: {
         email
       }
     })
-    return !!exists
+    return exists as User
   }
 
   async delete(id: number): Promise<void> {

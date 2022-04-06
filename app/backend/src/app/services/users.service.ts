@@ -1,8 +1,8 @@
-import { Entity, User } from '../domain'
+import { Entity, User, UserLogin } from '../domain'
 import { UnauthorizedError } from '../errors'
 import { UserCreate } from '../interfaces'
 import { UsersModel } from '../models/users.model'
-import { encrypt } from '../utils'
+import { decryptPass, encrypt } from '../utils'
 
 export class UsersService {
   constructor(
@@ -23,6 +23,19 @@ export class UsersService {
     user.password = password
     const create = await this.usersModel.createUser(user)
     return create
+  }
+
+  async loginUser(user: UserLogin): Promise<string> {
+    const userExist = await this.usersModel.exists(user.email)
+    if (!userExist) {
+      throw new UnauthorizedError('User does not exist')
+    }
+    const password = await decryptPass(user.password, userExist.password)
+    if (!password) {
+      throw new UnauthorizedError('Password is incorrect')
+    }
+    // const userLogin = await this.usersModel.loginUser(user.email, password)
+    return 'token'
   }
 
   async deleteUser (id: number): Promise<void> {
