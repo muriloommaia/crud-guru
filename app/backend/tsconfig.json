@@ -4,12 +4,17 @@
     "module": "commonjs",
     "target": "es2020",
     "esModuleInterop": true,
+    "strict": true,
+    "lib": [
+      "esnext"
+    ],
     "sourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
   "include": [
-    "src"
+    "src",
+    "tests"
   ],
   "exclude": [
     "dist"
