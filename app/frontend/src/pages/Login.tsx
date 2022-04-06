@@ -1,6 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { requestLogin } from '../services/requests';
+import { verifyLogin } from '../utils';
 
 export default function Login() {
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [isLogged, setLogged] = useState(false);
+
+  const login = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    try {
+      const endpoint = 'login';
+      const { token, user } = await requestLogin(endpoint, { email, password });
+      localStorage.setItem('user', JSON.stringify({ token, ...user }));
+      setLogged(true);
+    } catch (error) {
+      window.alert('usuário ou senha inválidos');
+      setEmail('');
+      setPassword('');
+    }
+  };
+  const eventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    if (name === 'email') {
+      setEmail(value);
+    } else if (name === 'password') {
+      setPassword(event.target.value);
+    }
+  };
+  if (isLogged) {
+    return <Navigate to="/bash" />;
+  }
   return (
     <div className="h-screen font-sans login bg-cover bg-indigo-700">
       <div className="container mx-auto h-full flex flex-1 justify-center items-center">
