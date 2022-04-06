@@ -11,8 +11,8 @@ const get = async (req: Request, res: Response): Promise<void> => {
 
 const post = async (req: Request, res: Response): Promise<void> => {
   const { name, email, password } = req.body
-  const user = await userController.createUser({ name, email, password })
-  res.status(201).json(user)
+  const { status, message } = await userController.createUser({ name, email, password })
+  res.status(status).json(message)
 }
 
 userRoute.get('/', get)
