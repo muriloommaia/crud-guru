@@ -8,3 +8,13 @@ export type UserCreate = {
   name: string
   email: string
 }
+
+export type UserLogin = {
+  email: string
+  password: string
+}
+
+export type UserLoginService = {
+  user: UserCreate
+  token: string
+}

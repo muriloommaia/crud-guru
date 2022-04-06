@@ -1,6 +1,6 @@
 import { usersValidator } from '../../validators'
-import { Entity, User, UserLogin } from '../domain'
-import { ResponseController, UserCreate } from '../interfaces/'
+import { Entity, User } from '../domain'
+import { ResponseController, UserCreate, UserLogin } from '../interfaces/'
 import { UsersService } from '../services/users.service'
 export class UsersController {
   constructor(

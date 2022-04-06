@@ -14,8 +14,3 @@ export type User = Entity & {
   password: string
   name: string
 }
-
-export type UserLogin = {
-  email: string
-  password: string
-}
