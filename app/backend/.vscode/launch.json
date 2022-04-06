@@ -12,7 +12,7 @@
         "ts-node/register/transpile-only"
       ],
       "args": [
-        "src",
+        "src/api/server",
       ],
       "cwd": "${workspaceRoot}",
       "internalConsoleOptions": "openOnSessionStart",
