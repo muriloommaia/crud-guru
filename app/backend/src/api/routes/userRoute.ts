@@ -12,7 +12,6 @@ const get = async (req: Request, res: Response): Promise<void> => {
 const post = async (req: Request, res: Response): Promise<void> => {
   const { name, email, password } = req.body
   const user = await userController.createUser({ name, email, password })
-  console.log(user)
   res.status(201).json(user)
 }
 
