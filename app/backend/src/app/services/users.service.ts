@@ -25,4 +25,8 @@ export class UsersService {
     const create = await this.usersModel.createUser(user)
     return create
   }
+
+  async deleteUser (id: number): Promise<void> {
+    await this.usersModel.delete(id)
+  }
 }

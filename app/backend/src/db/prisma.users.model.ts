@@ -21,4 +21,12 @@ export class PrismaUsersModel {
     })
     return !!exists
   }
+
+  async delete(id: number): Promise<void> {
+    await prisma.user.delete({
+      where: {
+        id
+      }
+    })
+  }
 }

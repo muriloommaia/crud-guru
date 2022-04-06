@@ -5,7 +5,7 @@ const userController = usersFactory()
 
 const userRoute = Router()
 
-const getAllUsers = async (req: Request, res: Response): Promise<void> => {
+const read = async (req: Request, res: Response): Promise<void> => {
   const { status, message } = await userController.getAllUsers()
   res.status(status).json(message)
 }
@@ -16,8 +16,16 @@ const create = async (req: Request, res: Response): Promise<void> => {
   res.status(status).json(message)
 }
 
-userRoute.get('/', getAllUsers)
+const deleteU = async (req: Request, res: Response): Promise<void> => {
+  const { id } = req.params
+  const { status } = await userController.deleteUser(+id)
+  res.status(status).json({ message: 'User deleted' })
+}
 
 userRoute.post('/', create)
+
+userRoute.get('/', read)
+
+userRoute.delete('/:id', deleteU)
 
 export { userRoute }

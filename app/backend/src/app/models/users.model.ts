@@ -20,4 +20,8 @@ export class UsersModel {
     const exists = await this.db.exists(email)
     return exists
   }
+
+  async delete(id: number): Promise<void> {
+    await this.db.delete(id)
+  }
 }

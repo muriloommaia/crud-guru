@@ -20,4 +20,9 @@ export class UsersController {
     const create = await this.userService.createUser(validate)
     return { status: 201, message: create }
   }
+
+  async deleteUser(id: number): Promise<ResponseController<boolean>> {
+    await this.userService.deleteUser(id)
+    return { status: 204, message: true }
+  }
 }
