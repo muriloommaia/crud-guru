@@ -31,7 +31,8 @@ const read = async (req: Request, res: Response): Promise<void> => {
 
 const deleteU = async (req: Request, res: Response): Promise<void> => {
   const { id } = req.params
-  const { status } = await userController.deleteUser(+id)
+  const token = req.headers.authorization as string
+  const { status } = await userController.deleteUser(+id, token)
   res.status(status).end()
 }
 

@@ -27,8 +27,8 @@ export class UsersController {
     return { status: 200, message: create }
   }
 
-  async deleteUser(id: number): Promise<ResponseController<boolean>> {
-    await this.userService.deleteUser(id)
+  async deleteUser(id: number, token: string): Promise<ResponseController<boolean>> {
+    await this.userService.deleteUser(id, token)
     return { status: 204, message: true }
   }
 }
