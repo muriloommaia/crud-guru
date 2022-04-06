@@ -22,6 +22,16 @@ export class PrismaUsersModel {
     return exists as User
   }
 
+  async updateUser(id: number, user: Omit<UserCreate, 'id'>): Promise<UserCreate> {
+    const { id: userId, name, email } = await prisma.user.update({
+      where: {
+        id
+      },
+      data: user
+    })
+    return { id: userId, name, email }
+  }
+
   async delete(id: number): Promise<void> {
     await prisma.user.delete({
       where: {

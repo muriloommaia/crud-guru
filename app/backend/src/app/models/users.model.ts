@@ -21,6 +21,11 @@ export class UsersModel {
     return exists
   }
 
+  async updateUser(id: number, user: Omit<UserCreate, 'id'>): Promise<UserCreate> {
+    const update = await this.db.updateUser(id, user)
+    return update
+  }
+
   async delete(id: number): Promise<void> {
     await this.db.delete(id)
   }

@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express'
 import { usersFactory } from '../../app/factory'
-import { authenticateToken } from '../middleware/auth'
+import { authenticateToken, validUser } from '../middleware/auth'
 
 const userController = usersFactory()
 
@@ -23,16 +23,16 @@ const read = async (req: Request, res: Response): Promise<void> => {
   res.status(status).json(message)
 }
 
-// const update = async (req: Request, res: Response): Promise<void> => {
-//   const { name, email, password } = req.body
-//   const { status, message } = await userController.updateUser({ name, email, password })
-//   res.status(status).json(message)
-// }
+const update = async (req: Request, res: Response): Promise<void> => {
+  const { name, email } = req.body
+  const { id } = req.params
+  const { status, message } = await userController.updateUser(+id, { name, email })
+  res.status(status).json(message)
+}
 
 const deleteU = async (req: Request, res: Response): Promise<void> => {
   const { id } = req.params
-  const token = req.headers.authorization as string
-  const { status } = await userController.deleteUser(+id, token)
+  const { status } = await userController.deleteUser(+id)
   res.status(status).end()
 }
 
@@ -45,8 +45,9 @@ userRoute.get('/', read)
 // Validação de token jwt, deve estar no header
 userRoute.use(authenticateToken)
 
-// userRoute.put('/:id', update)
+// Validação se o usuário tem permissão para as alterações
+userRoute.put('/:id/update', validUser, update)
 
-userRoute.delete('/:id/delete', deleteU)
+userRoute.delete('/:id/delete', validUser, deleteU)
 
 export { userRoute }

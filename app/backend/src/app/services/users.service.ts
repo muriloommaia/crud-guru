@@ -2,7 +2,7 @@ import { Entity, User } from '../domain'
 import { UnauthorizedError } from '../errors'
 import { UserCreate, UserLogin, UserLoginService } from '../interfaces'
 import { UsersModel } from '../models/users.model'
-import { decryptPass, encrypt, generateToken, verifyToken } from '../utils'
+import { decryptPass, encrypt, generateToken } from '../utils'
 
 export class UsersService {
   constructor(
@@ -45,11 +45,16 @@ export class UsersService {
     }
   }
 
-  async deleteUser (id: number, token: string): Promise<void> {
-    const { id: idToken } = await verifyToken(token)
-    if (id !== idToken) {
-      throw new UnauthorizedError('Only the user can delete it')
+  async updateUser(id: number, user: Omit<UserCreate, 'id'>): Promise<UserCreate> {
+    const userExist = await this.usersModel.exists(user.email)
+    if (userExist) {
+      throw new UnauthorizedError('User already exists, change the mail')
     }
+    const update = await this.usersModel.updateUser(id, user)
+    return update
+  }
+
+  async deleteUser (id: number): Promise<void> {
     await this.usersModel.delete(id)
   }
 }
