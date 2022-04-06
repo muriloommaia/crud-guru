@@ -32,6 +32,17 @@ export class PrismaUsersModel {
     return { id: userId, name, email }
   }
 
+  async updatePass(id: number, password: string): Promise<void> {
+    await prisma.user.update({
+      where: {
+        id
+      },
+      data: {
+        password
+      }
+    })
+  }
+
   async delete(id: number): Promise<void> {
     await prisma.user.delete({
       where: {

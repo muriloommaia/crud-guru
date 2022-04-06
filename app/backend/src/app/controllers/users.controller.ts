@@ -33,6 +33,12 @@ export class UsersController {
     return { status: 200, message: updated }
   }
 
+  async updatePass(id: number, password: string): Promise<ResponseController<string>> {
+    await usersValidator.updatePass({ password })
+    await this.userService.updatePass(id, password)
+    return { status: 200, message: 'Password updated' }
+  }
+
   async deleteUser(id: number): Promise<ResponseController<boolean>> {
     await this.userService.deleteUser(id)
     return { status: 204, message: true }

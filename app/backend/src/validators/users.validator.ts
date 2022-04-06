@@ -6,7 +6,7 @@ export const usersValidator = {
   async create(value: any): Promise<Omit<User, keyof Entity>> {
     const schema = Joi.object({
       email: Joi.string().email().required(),
-      name: Joi.string().required(),
+      name: Joi.string().min(4).required(),
       password: Joi.string().min(6).required()
     })
     const result = await schema.validateAsync(value)
@@ -22,8 +22,15 @@ export const usersValidator = {
   },
   async update(value: any): Promise<UserCreate> {
     const schema = Joi.object({
-      name: Joi.string().required(),
+      name: Joi.string().min(4).required(),
       email: Joi.string().email().required()
+    })
+    const result = await schema.validateAsync(value)
+    return result
+  },
+  async updatePass(value: any): Promise<UserCreate> {
+    const schema = Joi.object({
+      password: Joi.string().min(6).required()
     })
     const result = await schema.validateAsync(value)
     return result

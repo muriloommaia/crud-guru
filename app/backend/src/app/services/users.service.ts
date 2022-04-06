@@ -54,6 +54,11 @@ export class UsersService {
     return update
   }
 
+  async updatePass(id: number, password: string): Promise<void> {
+    const encryptPass = await encrypt(password)
+    await this.usersModel.updatePass(id, encryptPass)
+  }
+
   async deleteUser (id: number): Promise<void> {
     await this.usersModel.delete(id)
   }
