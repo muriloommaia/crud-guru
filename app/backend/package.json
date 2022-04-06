@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=local ts-node src/api/server",
+    "prestart": "npx prisma generate && npx prisma migrate dev --name init",
     "migrate": "npx prisma migrate dev --name init",
+    "generate": "npx prisma generate",
     "build": "rimraf dist && tsc -p .",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand --detectOpenHandles",
     "test:verbose": "jest --passWithNoTests --runInBand --detectOpenHandles",
@@ -27,6 +29,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.4.1",
     "@types/jsonwebtoken": "^8.5.8",
@@ -48,6 +51,7 @@
   "dependencies": {
     "@prisma/client": "^3.12.0",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-async-errors": "^3.1.1",

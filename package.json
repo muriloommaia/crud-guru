@@ -1,0 +1,24 @@
+{
+  "name": "crud-guru",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compose:up": "(cd app && docker-compose up -d --build)",
+    "compose:down": "(cd app && docker-compose down)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muriloommaia/CRUD-Guru.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muriloommaia/CRUD-Guru/issues"
+  },
+  "homepage": "https://github.com/muriloommaia/CRUD-Guru#readme",
+  "devDependencies": {
+    "eslint": "^8.12.0"
+  }
+}
