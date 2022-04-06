@@ -9,10 +9,9 @@ export class UsersService {
     readonly usersModel: UsersModel
   ) { }
 
-  async getAllUsers(): Promise<Array<Omit<UserCreate, 'id'>>> {
+  async getAllUsers(): Promise<UserCreate[]> {
     const response = await this.usersModel.getAllUsers()
-    const allUsers = response.map(({ name, email }) => ({ name, email }))
-    return allUsers
+    return response
   }
 
   async createUser (user: Omit<User, keyof Entity>): Promise<any> {

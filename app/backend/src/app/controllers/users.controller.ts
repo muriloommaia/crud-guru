@@ -7,7 +7,7 @@ export class UsersController {
     readonly userService: UsersService
   ) { }
 
-  async getAllUsers(): Promise<ResponseController<Array<Omit<UserCreate, 'id'>>>> {
+  async getAllUsers(): Promise<ResponseController<UserCreate[]>> {
     const response = await this.userService.getAllUsers()
     return {
       status: 200,
