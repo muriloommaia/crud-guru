@@ -3,7 +3,7 @@ import { UsersController } from '../controllers/users.controller'
 import { UsersModel } from '../models/users.model'
 import { UsersService } from '../services/users.service'
 
-export const usersFactory = async (): Promise<UsersController> => {
+export const usersFactory = (): UsersController => {
   const userRepository = new PrismaUsersModel()
   const userModel = new UsersModel(userRepository)
   const userService = new UsersService(userModel)
