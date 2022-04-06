@@ -1,5 +1,6 @@
 import { Request, Response, Router } from 'express'
 import { usersFactory } from '../../app/factory'
+import { authenticateToken } from '../middleware/auth'
 
 const userController = usersFactory()
 
@@ -39,6 +40,9 @@ userRoute.post('/register', create)
 userRoute.post('/login', login)
 
 userRoute.get('/', read)
+
+// Validação de token jwt, deve estar no header
+userRoute.use(authenticateToken)
 
 // userRoute.put('/:id', update)
 

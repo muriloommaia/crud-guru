@@ -5,6 +5,8 @@ const errorMiddleware = (err: Error, _req: Request, res: Response, next: NextFun
   console.log(err)
   switch (name) {
     case 'BadRequestError': return res.status(400).json({ message })
+    case 'JsonWebTokenError': return res.status(400).json({ message })
+    case 'TokenExpiredError': return res.status(400).json({ message })
     case 'ValidationError': return res.status(401).json({ message })
     case 'UnauthorizedError': return res.status(401).json({ message })
     default:

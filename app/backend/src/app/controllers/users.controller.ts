@@ -1,6 +1,6 @@
 import { usersValidator } from '../../validators'
 import { Entity, User } from '../domain'
-import { ResponseController, UserCreate, UserLogin } from '../interfaces/'
+import { ResponseController, UserCreate, UserLogin, UserLoginService } from '../interfaces/'
 import { UsersService } from '../services/users.service'
 export class UsersController {
   constructor(
@@ -21,7 +21,7 @@ export class UsersController {
     return { status: 201, message: create }
   }
 
-  async loginUser(user: UserLogin): Promise<ResponseController<string>> {
+  async loginUser(user: UserLogin): Promise<ResponseController<UserLoginService>> {
     const validate = await usersValidator.login(user)
     const create = await this.userService.loginUser(validate)
     return { status: 200, message: create }
