@@ -13,7 +13,7 @@ export const requestData = async (endpoint: string) => {
   return data;
 };
 
-export const requestLogin = async (endpoint: string, body: any) => {
+export const request = async (endpoint: string, body: any) => {
   const { data } = await api.post(endpoint, body);
   return data;
 };

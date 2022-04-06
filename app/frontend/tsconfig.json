@@ -7,6 +7,7 @@
       "esnext"
     ],
     "allowJs": true,
+    "useUnknownInCatchVariables": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
