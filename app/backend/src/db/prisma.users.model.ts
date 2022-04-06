@@ -6,13 +6,18 @@ export class PrismaUsersModel {
   }
 
   async createUser(user: Omit<User, keyof Entity>): Promise<any> {
-    const { name, email, password } = user
-    return await prisma.user.create({
-      data: {
-        name,
-        email,
-        password
+    const { id, name, email } = await prisma.user.create({
+      data: user
+    })
+    return { id, name, email }
+  }
+
+  async exists(email: string): Promise<boolean> {
+    const exists = await prisma.user.findUnique({
+      where: {
+        email
       }
     })
+    return !!exists
   }
 }
