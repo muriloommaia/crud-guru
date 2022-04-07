@@ -24,6 +24,11 @@ const read = async (req: Request, res: Response): Promise<void> => {
   res.status(status).json(message)
 }
 
+const count = async (req: Request, res: Response): Promise<void> => {
+  const { status, message } = await userController.count()
+  res.status(status).json(message)
+}
+
 const update = async (req: Request, res: Response): Promise<void> => {
   const { name, email } = req.body
   const { id } = req.params
@@ -49,6 +54,8 @@ userRoute.post('/register', create)
 userRoute.post('/login', login)
 
 userRoute.get('/', read)
+
+userRoute.get('/count', count)
 
 // Validação de token jwt, deve estar no header
 userRoute.use(authenticateToken)

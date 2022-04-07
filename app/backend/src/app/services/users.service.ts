@@ -62,6 +62,11 @@ export class UsersService {
     await this.usersModel.updatePass(id, encryptPass)
   }
 
+  async count(): Promise<number> {
+    const count = await this.usersModel.count()
+    return count
+  }
+
   async deleteUser (id: number): Promise<void> {
     await this.usersModel.delete(id)
   }

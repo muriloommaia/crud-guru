@@ -35,6 +35,11 @@ export class UsersController {
     return { status: 200, message: updated }
   }
 
+  async count(): Promise<ResponseController<number>> {
+    const count = await this.userService.count()
+    return { status: 200, message: count }
+  }
+
   async updatePass(id: number, password: string): Promise<ResponseController<string>> {
     await usersValidator.updatePass({ password })
     await this.userService.updatePass(id, password)

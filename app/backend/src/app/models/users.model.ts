@@ -22,6 +22,11 @@ export class UsersModel {
     return exists
   }
 
+  async count(): Promise<number> {
+    const count = await this.db.count()
+    return count
+  }
+
   async updateUser(id: number, user: Omit<UserCreate, 'id'>): Promise<UserCreate> {
     const update = await this.db.updateUser(id, user)
     return update
