@@ -19,8 +19,14 @@ const login = async (req: Request, res: Response): Promise<void> => {
 }
 
 const read = async (req: Request, res: Response): Promise<void> => {
-  const { status, message } = await userController.getAllUsers()
-  res.status(status).json(message)
+  const filter = req.query.filter as string
+  if (filter) {
+    const { status, message } = await userController.getByFilter(filter)
+    res.status(status).json(message)
+  } else {
+    const { status, message } = await userController.getAllUsers()
+    res.status(status).json(message)
+  }
 }
 
 const update = async (req: Request, res: Response): Promise<void> => {

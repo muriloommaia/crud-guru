@@ -6,6 +6,26 @@ export class PrismaUsersModel {
     return await prisma.user.findMany()
   }
 
+  async getByFilter(filter: string): Promise<UserCreate[]> {
+    const users = await prisma.user.findMany({
+      where: {
+        OR: [
+          {
+            email: {
+              contains: filter
+            }
+          },
+          {
+            name: {
+              contains: filter
+            }
+          }
+        ]
+      }
+    })
+    return users
+  }
+
   async createUser(user: Omit<User, keyof Entity>): Promise<UserCreate> {
     const { id, name, email } = await prisma.user.create({
       data: user

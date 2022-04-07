@@ -15,6 +15,14 @@ export class UsersController {
     }
   }
 
+  async getByFilter(filter: string): Promise<ResponseController<UserCreate[]>> {
+    const response = await this.userService.getByFilter(filter)
+    return {
+      status: 200,
+      message: response
+    }
+  }
+
   async createUser(user: Omit<User, keyof Entity>): Promise<ResponseController<UserCreate>> {
     const validate = await usersValidator.create(user)
     const create = await this.userService.createUser(validate)

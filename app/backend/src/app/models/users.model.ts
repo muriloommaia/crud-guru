@@ -11,6 +11,11 @@ export class UsersModel {
     return await this.db.getAllUsers()
   }
 
+  async getByFilter(filter: string): Promise<UserCreate[]> {
+    const users = await this.db.getByFilter(filter)
+    return users
+  }
+
   async createUser(user: Omit<User, keyof Entity>): Promise<UserCreate> {
     const create = await this.db.createUser(user)
     return create

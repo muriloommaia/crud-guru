@@ -14,6 +14,11 @@ export class UsersService {
     return response
   }
 
+  async getByFilter(filter: string): Promise<UserCreate[]> {
+    const users = await this.usersModel.getByFilter(filter)
+    return users
+  }
+
   async createUser (user: Omit<User, keyof Entity>): Promise<any> {
     const userExist = await this.usersModel.exists(user.email)
     if (userExist) {
@@ -47,7 +52,7 @@ export class UsersService {
 
   async updateUser(id: number, user: Omit<UserCreate, 'id'>): Promise<UserCreate> {
     const userExist = await this.usersModel.exists(user.email)
-    if (userExist) {
+    if (userExist && userExist.id !== id) {
       throw new UnauthorizedError('User already exists, change the mail')
     }
     const update = await this.usersModel.updateUser(id, user)
