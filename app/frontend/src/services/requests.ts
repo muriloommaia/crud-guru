@@ -26,5 +26,12 @@ export const requestHeader = async (endpoint: string, body: any, token: string) 
   });
   return data;
 };
-
+export const requestDelete = async (endpoint: string, token: string) => {
+  const { data } = await api.delete(endpoint, {
+    headers: {
+      Authorization: token,
+    },
+  });
+  return data;
+};
 export default api;
