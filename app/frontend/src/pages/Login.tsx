@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import { request, setToken } from '../services/requests';
+import { RootState } from '../store';
+import { setLogged } from '../store/loggedSlice';
 import { verifyLogin } from '../utils';
 
 export default function Login() {
+  const dispatch = useDispatch();
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [isLogged, setLogged] = useState(false);
-
+  const isLogged = useSelector((state: RootState) => state.logged.logged);
   const login = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
@@ -15,6 +18,7 @@ export default function Login() {
       const { token, user } = await request(endpoint, { email, password });
       localStorage.setItem('user', JSON.stringify({ token, ...user }));
       setToken(token);
+      dispatch(setLogged(true));
       setLogged(true);
     } catch (error) {
       window.alert('usuário ou senha inválidos');

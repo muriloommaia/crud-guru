@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './store';
+import { store } from './store';
 
 ReactDOM.render(
   <Provider store={store}>

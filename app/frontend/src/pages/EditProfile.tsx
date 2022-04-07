@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
-import { requestHeader } from '../services/requests';
+import { requestDelete, requestHeader } from '../services/requests';
+import { setLogged } from '../store/loggedSlice';
 import { UserRender } from '../Types/UserTypes';
 import { verifyChange } from '../utils';
 
@@ -9,6 +11,7 @@ export default function EditProfile() {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [edit, setEdit] = React.useState(false);
+  const dispatch = useDispatch();
   const getUser = () => {
     const response = localStorage.getItem('user') as string;
     const responseJSON = JSON.parse(response) as UserRender;
@@ -37,6 +40,21 @@ export default function EditProfile() {
       window.alert('Email existente');
     }
   };
+
+  const removeUser = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    try {
+      const endpoint = `${user?.id}/delete`;
+      const token = user?.token as string;
+      await requestDelete(endpoint, token);
+      localStorage.removeItem('user');
+      dispatch(setLogged(false));
+      setEdit(true);
+    } catch (error) {
+      window.alert('Email existente');
+    }
+  };
+
   if (edit) return <Navigate to="/home" />;
   return (
     <div className="h-screen font-sans login bg-cover bg-indigo-700">
@@ -88,6 +106,13 @@ export default function EditProfile() {
                   onClick={(e) => buttonClick(e)}
                 >
                   Alterar
+                </button>
+                <button
+                  className="px-4 py-1 text-white font-light tracking-wider disabled:opacity-70 bg-red-900 hover:bg-gray-800 rounded"
+                  type="button"
+                  onClick={(e) => removeUser(e)}
+                >
+                  Excluir Usuário
                 </button>
               </div>
               <div className="text-center">
