@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from 'express'
 
 const errorMiddleware = (err: Error, _req: Request, res: Response, next: NextFunction): any => {
   const { name, message } = err
-  console.log(err)
   switch (name) {
     case 'BadRequestError': return res.status(400).json({ message })
     case 'JsonWebTokenError': return res.status(400).json({ message })

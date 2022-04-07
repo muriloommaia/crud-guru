@@ -13,4 +13,6 @@ export const MAIL_NOT_FOUND = 'emanuel@gmail.com'
 
 export const PASS_VALID = '123456'
 
-export const PASS_INVALID = 'invalid'
+export const PASS_INVALID_LENGTH = '123'
+
+export const PASS_INVALID = '1234567'

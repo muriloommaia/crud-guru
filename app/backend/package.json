@@ -10,7 +10,7 @@
     "seed": "npx prisma db seed",
     "generate": "npx prisma generate",
     "build": "rimraf dist && tsc -p .",
-    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand --detectOpenHandles",
+    "test": "jest",
     "test:verbose": "jest --passWithNoTests --runInBand --detectOpenHandles",
     "test:coverage": "npm run test -- --coverage",
     "test:coverage:verbose": "npm run test:verbose -- --coverage",

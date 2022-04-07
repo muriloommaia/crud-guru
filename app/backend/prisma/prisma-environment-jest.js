@@ -21,9 +21,8 @@ class CustomEnvironment extends NodeEnvironment {
   setup () {
     process.env.DATABASE_URL = this.connectionString
     this.global.process.env.DATABASE_URL = this.connectionString
-
     // Rodar as migrations
-    execSync(`${prismaCli} migrate dev`)
+    execSync(`${prismaCli} migrate deploy`)
     execSync(`${prismaCli} db seed`)
   }
 
