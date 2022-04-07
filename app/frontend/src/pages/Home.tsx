@@ -10,9 +10,11 @@ import { UserRender } from '../Types/UserTypes';
 export default function Home() {
   const [data, setData] = React.useState<UserRender[]>([]);
   const [user, setUser] = React.useState<UserRender>();
+  const page = useSelector((state: RootState) => state.actualPage.page);
   const isLogged = useSelector((state: RootState) => state.logged.logged);
   const getData = async () => {
-    const response = await requestData('/');
+    const endpoint = `/?page=${page}`;
+    const response = await requestData(endpoint);
     setData(response);
   };
   const getUser = () => {
