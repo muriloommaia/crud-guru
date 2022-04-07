@@ -21,7 +21,7 @@ export const validUser = async (
   const { id } = req.params
   const { id: idToken } = await verifyToken(token)
   if (+id !== idToken) {
-    throw new UnauthorizedError('Only the user can delete it')
+    throw new UnauthorizedError('Only the user can do this')
   }
   next()
 }
