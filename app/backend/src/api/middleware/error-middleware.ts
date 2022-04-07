@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 
-const errorMiddleware = (err: Error, _req: Request, res: Response, next: NextFunction): any => {
+const errorMiddleware = (err: Error, _req: Request, res: Response, _next: NextFunction): any => {
   const { name, message } = err
   switch (name) {
     case 'BadRequestError': return res.status(400).json({ message })
@@ -8,13 +8,8 @@ const errorMiddleware = (err: Error, _req: Request, res: Response, next: NextFun
     case 'TokenExpiredError': return res.status(400).json({ message })
     case 'ValidationError': return res.status(401).json({ message })
     case 'UnauthorizedError': return res.status(401).json({ message })
-    default:
-      res.status(500).json({
-        message: 'Something went wrong'
-      })
-      break
+    default: return res.status(500).json({ message: 'Something went wrong' })
   }
-  next()
 }
 
 export { errorMiddleware }
