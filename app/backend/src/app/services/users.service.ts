@@ -11,12 +11,14 @@ export class UsersService {
 
   async getAllUsers(): Promise<UserCreate[]> {
     const response = await this.usersModel.getAllUsers()
-    return response
+    const user = response.map(({ name, id, email }) => ({ id, name, email }))
+    return user
   }
 
   async getByFilter(filter: string): Promise<UserCreate[]> {
-    const users = await this.usersModel.getByFilter(filter)
-    return users
+    const response = await this.usersModel.getByFilter(filter)
+    const user = response.map(({ name, id, email }) => ({ id, name, email }))
+    return user
   }
 
   async createUser (user: Omit<User, keyof Entity>): Promise<any> {

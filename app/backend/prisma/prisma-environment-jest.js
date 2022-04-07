@@ -24,13 +24,13 @@ class CustomEnvironment extends NodeEnvironment {
 
     // Rodar as migrations
     execSync(`${prismaCli} migrate dev`)
+    execSync(`${prismaCli} db seed`)
   }
 
   async teardown () {
     const client = new Client({
       connectionString: this.connectionString
     })
-
     await client.connect()
     await client.query(`DROP SCHEMA IF EXISTS "${this.schema}" CASCADE`)
     await client.end()
