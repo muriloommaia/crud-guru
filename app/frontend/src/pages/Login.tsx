@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { request } from '../services/requests';
+import { request, setToken } from '../services/requests';
 import { verifyLogin } from '../utils';
 
 export default function Login() {
@@ -14,6 +14,7 @@ export default function Login() {
       const endpoint = 'login';
       const { token, user } = await request(endpoint, { email, password });
       localStorage.setItem('user', JSON.stringify({ token, ...user }));
+      setToken(token);
       setLogged(true);
     } catch (error) {
       window.alert('usuário ou senha inválidos');

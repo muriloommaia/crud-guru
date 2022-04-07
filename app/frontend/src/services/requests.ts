@@ -18,4 +18,13 @@ export const request = async (endpoint: string, body: any) => {
   return data;
 };
 
+export const requestHeader = async (endpoint: string, body: any, token: string) => {
+  const { data } = await api.put(endpoint, body, {
+    headers: {
+      Authorization: token,
+    },
+  });
+  return data;
+};
+
 export default api;

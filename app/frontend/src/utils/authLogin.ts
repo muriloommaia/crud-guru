@@ -13,3 +13,11 @@ export function verifyRegister(email: string, password: string, name: string): b
   }
   return true;
 }
+
+export function verifyChange(email: string, name: string): boolean {
+  const re = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
+  if (re.test(email) && name.length > 4) {
+    return false;
+  }
+  return true;
+}

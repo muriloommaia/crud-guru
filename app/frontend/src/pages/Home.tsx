@@ -24,8 +24,7 @@ export default function Home() {
     } catch (error) {
       console.log(error);
     }
-  }, []);
-  
+  }, [document.title]);
   return (
     <div>
       <Header />
