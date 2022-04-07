@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    depends_on:
+      db:
+        condition: service_healthy
+    ports: 
+      - "3001:3001"
+    environment:
+     - DATABASE_URL=postgres://postgres:postgres@host.docker.interval:5432/postgres
+     - PORT=3001
+  db:
+    image: postgres:13
+    container_name: db-guru
+    restart: always
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+  
