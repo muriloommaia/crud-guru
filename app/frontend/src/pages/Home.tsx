@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Header from '../components/Header';
+import InputFilter from '../components/InputFilter';
 import Pagination from '../components/Pagination';
 import Table from '../components/Table';
 import { requestData } from '../services/requests';
@@ -12,8 +13,9 @@ export default function Home() {
   const [user, setUser] = React.useState<UserRender>();
   const page = useSelector((state: RootState) => state.actualPage.page);
   const isLogged = useSelector((state: RootState) => state.logged.logged);
+  const filter = useSelector((state: RootState) => state.filter.filter);
   const getData = async () => {
-    const endpoint = `/?page=${page}`;
+    const endpoint = `/?page=${page}&filter=${filter}`;
     const response = await requestData(endpoint);
     setData(response);
   };
@@ -30,7 +32,7 @@ export default function Home() {
     } catch (error) {
       console.log(error);
     }
-  }, [page]);
+  }, [page, filter]);
   return (
     <div>
       <Header />
@@ -51,9 +53,7 @@ export default function Home() {
           Caso queira editar ou excluir um usuário, basta fazer o login com o devido usuário e aparecerá um botão "editar perfil" no canto superior direito.
         </p>
       </div>
-      <div className="bg-grey col-12 mt-3 align-middle justify-content-center flex">
-        <input type="text" className="col-8 border-2 p-2" placeholder="Search for Users" id="search-filter" />
-      </div>
+      <InputFilter />
       <Table data={data} />
       <Pagination />
     </div>
