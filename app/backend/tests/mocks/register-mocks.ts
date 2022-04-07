@@ -4,9 +4,9 @@ export const registerValid = {
   password: '123456'
 }
 export const registerResponse = {
-  name: 'Meu Usuário',
   email: 'usuario@gmail.com',
-  id: 5
+  id: 5,
+  name: 'Meu Usuário'
 }
 export const NAME_VALID = 'Meu Usuário'
 
