@@ -9,11 +9,12 @@ services:
     ports: 
       - "3001:3001"
     environment:
-     - DATABASE_URL=postgres://postgres:postgres@host.docker.interval:5432/postgres
+     - DATABASE_URL=postgres://root:gurupass@db:5555/root
      - PORT=3001
+     - JWT_SECRET=secret
   db:
-    image: postgres:13
-    container_name: db-guru
+    image: postgres:14
+    container_name: db
     restart: always
     healthcheck:
       test: ["CMD", "pg_isready"]
@@ -21,9 +22,8 @@ services:
       timeout: 10s
       retries: 5
     ports:
-      - 5432:5432
+      - 5555:5432
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
-  
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=gurupass
+      - POSTGRES_DB=root

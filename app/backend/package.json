@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=local ts-node src/api/server",
-    "prestart": "npx prisma generate && npx prisma migrate dev --name init",
+    "prestart": "npx prisma generate && npx prisma migrate dev --name init && npx prisma db seed",
     "migrate": "npx prisma migrate dev --name init",
+    "seed": "npx prisma db seed",
     "generate": "npx prisma generate",
     "build": "rimraf dist && tsc -p .",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand --detectOpenHandles",
@@ -27,6 +28,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.12",

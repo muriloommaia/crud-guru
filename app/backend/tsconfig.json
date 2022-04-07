@@ -14,7 +14,8 @@
   },
   "include": [
     "src",
-    "tests"
+    "tests",
+    "prisma"
   ],
   "exclude": [
     "dist"
