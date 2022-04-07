@@ -1,15 +1,27 @@
 version: "3.9"
 
 services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
   backend:
     build: ./backend
     depends_on:
       db:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3001"] # Caso utilize outra porta interna para o back, altere ela aqui também
+      interval: 10s
+      timeout: 10s
+      retries: 5
     ports: 
       - "3001:3001"
     environment:
-     - DATABASE_URL=postgres://root:gurupass@db:5555/root
+     - DATABASE_URL=postgres://guruuser:gurupass@db:5432/gurudb
      - PORT=3001
      - JWT_SECRET=secret
   db:
@@ -22,8 +34,8 @@ services:
       timeout: 10s
       retries: 5
     ports:
-      - 5555:5432
+      - 25432:5432
     environment:
-      - POSTGRES_USER=root
+      - POSTGRES_USER=guruuser
       - POSTGRES_PASSWORD=gurupass
-      - POSTGRES_DB=root
+      - POSTGRES_DB=gurudb

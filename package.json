@@ -4,13 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run install:app && npm run start:app",
-    "start:app": "npm run start:back && npm run start:front",
-    "start:front": "cd app/frontend && npm run start",
-    "start:back": "cd app/backend && npm run start",
-    "install:app": "npm run install:front && npm run install:back",
-    "install:front": "cd app/frontend && npm install",
-    "install:back": "cd app/backend && npm install",
     "compose:up": "(cd app && docker-compose up -d --build)",
     "compose:down": "(cd app && docker-compose down)"
   },
