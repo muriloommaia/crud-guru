@@ -1,10 +1,10 @@
 import React from 'react';
 import { UserRender } from '../Types/UserTypes';
 
-export default function LineTable({ user }: { user: UserRender }) {
-  const { id, email, name } = user;
+export default function LineTable({ user, idx }: { user: UserRender, idx: number }) {
+  const { email, name } = user;
   return (
-    <tr>
+    <tr className="odd:bg-indigo-600">
       <td
         className="
           text-center text-dark
@@ -16,7 +16,7 @@ export default function LineTable({ user }: { user: UserRender }) {
           border-b border-l border-[#E8E8E8]
           "
       >
-        {id}
+        {idx + 1}
       </td>
       <td
         className="

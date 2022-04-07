@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Header from '../components/Header';
+import Pagination from '../components/Pagination';
 import Table from '../components/Table';
 import { requestData } from '../services/requests';
 import { RootState } from '../store';
@@ -52,6 +53,7 @@ export default function Home() {
         <input type="text" className="col-8 border-2 p-2" placeholder="Search for Users" id="search-filter" />
       </div>
       <Table data={data} />
+      <Pagination />
     </div>
   );
 }

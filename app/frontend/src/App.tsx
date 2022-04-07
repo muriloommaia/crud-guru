@@ -8,7 +8,7 @@ import Register from './pages/Register';
 
 export default function App() {
   return (
-    <div>
+    <div className="bg-indigo-900">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

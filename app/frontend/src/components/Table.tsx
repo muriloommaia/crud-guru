@@ -4,13 +4,13 @@ import LineTable from './LineTable';
 
 export default function Table({ data }: { data: UserRender[] }) {
   return (
-    <section className="bg-indigo-800 py-20 lg:py-[120px]">
+    <section className="flex flex-col bg-blue-900 py-5 lg:py-[120px] items-center">
       <div className="container">
-        <div className="flex flex-wrap -mx-4">
+        <div className="flex flex-wrap -mx-4 center">
           <div className="w-full px-4">
             <div className="max-w-full overflow-x-auto">
               <table className="table-auto w-full">
-                <thead>
+                <thead className="rounded-lg">
                   <tr className="bg-primary text-center">
                     <th
                       className="
@@ -61,8 +61,8 @@ export default function Table({ data }: { data: UserRender[] }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((user) => (
-                    <LineTable key={user.id} user={user} />
+                  {data.map((user, idx) => (
+                    <LineTable key={user.id} user={user} idx={idx} />
                   ))}
                 </tbody>
               </table>
