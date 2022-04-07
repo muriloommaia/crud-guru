@@ -7,7 +7,7 @@ export const slice = createSlice({
   },
   reducers: {
     setPage(state, { payload }) {
-      return { ...state, page: payload };
+      return { ...state, page: state.page + payload };
     },
   },
 });

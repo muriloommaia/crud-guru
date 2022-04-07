@@ -30,7 +30,7 @@ export default function Home() {
     } catch (error) {
       console.log(error);
     }
-  }, [document.title]);
+  }, [page]);
   return (
     <div>
       <Header />
