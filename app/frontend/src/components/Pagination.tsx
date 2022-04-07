@@ -7,7 +7,7 @@ export default function Pagination() {
   const page = useSelector((state: RootState) => state.actualPage.page);
   const dispatch = useDispatch();
   const pagination = (count: number) => {
-    dispatch(setPage(count));
+    dispatch(setPage(count + page));
   };
   return (
     <div className="flex justify-around">
