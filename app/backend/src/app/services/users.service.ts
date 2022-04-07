@@ -9,14 +9,8 @@ export class UsersService {
     readonly usersModel: UsersModel
   ) { }
 
-  async getAllUsers(): Promise<UserCreate[]> {
-    const response = await this.usersModel.getAllUsers()
-    const user = response.map(({ name, id, email }) => ({ id, name, email }))
-    return user
-  }
-
-  async getByFilter(filter: string): Promise<UserCreate[]> {
-    const response = await this.usersModel.getByFilter(filter)
+  async getUsers(filter: string): Promise<UserCreate[]> {
+    const response = await this.usersModel.getUsers(filter)
     const user = response.map(({ name, id, email }) => ({ id, name, email }))
     return user
   }

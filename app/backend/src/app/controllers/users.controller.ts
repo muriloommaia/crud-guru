@@ -7,16 +7,8 @@ export class UsersController {
     readonly userService: UsersService
   ) { }
 
-  async getAllUsers(): Promise<ResponseController<UserCreate[]>> {
-    const response = await this.userService.getAllUsers()
-    return {
-      status: 200,
-      message: response
-    }
-  }
-
-  async getByFilter(filter: string): Promise<ResponseController<UserCreate[]>> {
-    const response = await this.userService.getByFilter(filter)
+  async getUsers(filter: string): Promise<ResponseController<UserCreate[]>> {
+    const response = await this.userService.getUsers(filter)
     return {
       status: 200,
       message: response
