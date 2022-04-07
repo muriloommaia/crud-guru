@@ -19,8 +19,8 @@ const login = async (req: Request, res: Response): Promise<void> => {
 }
 
 const read = async (req: Request, res: Response): Promise<void> => {
-  const filter = req.query.filter ? req.query.filter : ''
-  const { status, message } = await userController.getUsers(filter as string)
+  const { page, filter } = req.query as { page: string, filter: string }
+  const { status, message } = await userController.getUsers(filter, +page)
   res.status(status).json(message)
 }
 

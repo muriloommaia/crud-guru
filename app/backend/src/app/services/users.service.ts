@@ -9,8 +9,10 @@ export class UsersService {
     readonly usersModel: UsersModel
   ) { }
 
-  async getUsers(filter: string): Promise<UserCreate[]> {
-    const response = await this.usersModel.getUsers(filter)
+  async getUsers(filter: string, page: number): Promise<UserCreate[]> {
+    const take = 8
+    const skip = take * (page - 1)
+    const response = await this.usersModel.getUsers(filter, take, skip)
     const user = response.map(({ name, id, email }) => ({ id, name, email }))
     return user
   }

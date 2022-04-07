@@ -7,8 +7,8 @@ export class UsersModel {
     readonly db: PrismaUsersModel
   ) { }
 
-  async getUsers(filter: string): Promise<UserCreate[]> {
-    const users = await this.db.getUsers(filter)
+  async getUsers(filter: string, take: number, skip: number): Promise<UserCreate[]> {
+    const users = await this.db.getUsers(filter, take, skip)
     return users
   }
 

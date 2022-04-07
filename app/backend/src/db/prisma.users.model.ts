@@ -2,8 +2,10 @@ import { Entity, User } from '../app/domain'
 import { UserCreate } from '../app/interfaces'
 import { prisma } from './client'
 export class PrismaUsersModel {
-  async getUsers(filter: string): Promise<UserCreate[]> {
+  async getUsers(filter: string, take: number, skip: number): Promise<UserCreate[]> {
     const users = await prisma.user.findMany({
+      take,
+      skip,
       where: {
         OR: [
           {
