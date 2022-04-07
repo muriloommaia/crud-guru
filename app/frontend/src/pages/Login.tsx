@@ -79,7 +79,7 @@ export default function Login() {
 
               <div className="mt-4 items-center flex justify-between">
                 <button
-                  className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 hover:bg-gray-800 rounded"
+                  className="px-4 py-1 text-white font-light tracking-wider bg-green-900 hover:bg-green-800 rounded disabled:opacity-60"
                   type="submit"
                   disabled={verifyLogin(email, password)}
                   onClick={(e) => login(e)}
@@ -87,13 +87,21 @@ export default function Login() {
                   Entrar
 
                 </button>
+                <Link to="/register">
+                  <div
+                    className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 hover:bg-gray-800 rounded"
+                  >
+                    Registrar
+
+                  </div>
+                </Link>
               </div>
               <div className="text-center">
-                <Link to="/register" className="text-white text-sm">
+                <Link to="/home" className="text-white text-sm">
                   <div
                     className="inline-block right-0 align-baseline font-light text-sm text-500 hover:text-red-400"
                   >
-                    Criar uma conta
+                    Ir para a home sem login
                   </div>
                 </Link>
               </div>

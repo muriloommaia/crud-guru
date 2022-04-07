@@ -24,6 +24,7 @@
     "rules": {
         "import/prefer-default-export": "off",
         "max-len": "off",
+        "no-console":"off",
         "react/no-unescaped-entities": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "no-alert": "off",
