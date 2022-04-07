@@ -3,7 +3,6 @@ import { UserRender } from '../Types/UserTypes';
 import LineTable from './LineTable';
 
 export default function Table({ data }: { data: UserRender[] }) {
-  console.log(data);
   return (
     <section className="bg-indigo-800 py-20 lg:py-[120px]">
       <div className="container">
@@ -62,7 +61,9 @@ export default function Table({ data }: { data: UserRender[] }) {
                   </tr>
                 </thead>
                 <tbody>
-                  <LineTable />
+                  {data.map((user) => (
+                    <LineTable key={user.id} user={user} />
+                  ))}
                 </tbody>
               </table>
             </div>
