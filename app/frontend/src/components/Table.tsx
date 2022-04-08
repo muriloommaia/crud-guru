@@ -4,7 +4,7 @@ import LineTable from './LineTable';
 
 export default function Table({ data }: { data: UserRender[] }) {
   return (
-    <section className="flex flex-col bg-blue-900 py-5 lg:py-[120px] items-center">
+    <section className="flex flex-col bg-blue-900 py-5 lg:py-5 items-center w-11/12">
       <div className="container">
         <div className="flex flex-wrap -mx-4 center">
           <div className="w-full px-4">

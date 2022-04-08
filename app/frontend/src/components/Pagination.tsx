@@ -4,7 +4,7 @@ import { RootState } from '../store';
 import { setPage } from '../store/pageSlice';
 
 export default function Pagination() {
-  const page = useSelector((state: RootState) => state.actualPage.page);
+  const { actualPage: { page }, totalUsers: { total } } = useSelector((state: RootState) => state);
   const dispatch = useDispatch();
   const pagination = (count: number) => {
     dispatch(setPage(count + page));
@@ -25,7 +25,7 @@ export default function Pagination() {
         </p>
       </div>
       <button
-        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+        className={`bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-r ${page === Math.ceil(total / 8) ? 'disabled:opacity-50 cursor-not-allowed' : 'hover:bg-gray-400'}`}
         type="button"
         onClick={() => pagination(1)}
       >
