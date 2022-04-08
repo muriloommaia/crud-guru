@@ -13,7 +13,7 @@ describe('Verificação de rota de login', () => {
       expect(response.status).toBe(200)
       expect(response.body).toHaveProperty('token')
       expect(response.body).toHaveProperty('user')
-      expect(response.body.user).toStrictEqual(seedsMock[0])
+      expect(response.body.user).toStrictEqual(seedsMock[2])
     })
   })
   describe('Verificação de erros de dados', () => {

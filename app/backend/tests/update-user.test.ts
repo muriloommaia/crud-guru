@@ -47,7 +47,7 @@ describe('Verificação de rota update', () => {
     it('Verifica se não é possível atualizar com um email ja existente', async () => {
       const login = await request(app).post('/api/users/login').send(loginValid)
       const response = await request(app)
-        .put('/api/users/1/update')
+        .put('/api/users/7/update')
         .send(incorrectUpdate)
         .set('Authorization', login.body.token)
       expect(response.status).toBe(401)
@@ -59,11 +59,11 @@ describe('Verificação de rota update', () => {
     it('Verifica que é possível alterar o usuário', async () => {
       const login = await request(app).post('/api/users/login').send(loginValid)
       const response = await request(app)
-        .put('/api/users/1/update')
+        .put('/api/users/7/update')
         .send(correctUpdate)
         .set('Authorization', login.body.token)
       expect(response.status).toBe(200)
-      expect(response.body).toStrictEqual({ id: 1, ...correctUpdate })
+      expect(response.body).toStrictEqual({ id: 7, ...correctUpdate })
     })
   })
 })

@@ -10,11 +10,11 @@ export const seedsMock = [
 ]
 
 export const loginValid = {
-  email: 'muriloommaia@gmail.com',
+  email: 'carolinasilva@gmail.com',
   password: '123456'
 }
 
-export const MAIL_VALID = 'muriloommaia@gmail.com'
+export const MAIL_VALID = 'carolinasilva@gmail.com'
 
 export const MAIL_INVALID = 'muriloommaiagmail.com'
 

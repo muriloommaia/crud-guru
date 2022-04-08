@@ -46,7 +46,7 @@ describe('Verificação de rota update', () => {
     it('Verifica que é possível deletar o usuário', async () => {
       const login = await request(app).post('/api/users/login').send(loginValid)
       const response = await request(app)
-        .delete('/api/users/1/delete')
+        .delete('/api/users/7/delete')
 
         .set('Authorization', login.body.token)
       expect(response.status).toBe(204)
