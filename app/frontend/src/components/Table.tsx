@@ -5,7 +5,7 @@ import Pagination from './Pagination';
 
 export default function Table({ data }: { data: UserRender[] }) {
   return (
-    <section className="flex flex-col bg-green-500 items-center w-11/12 rounded-lg shadow-2xl">
+    <section className="flex flex-col bg-green-500 items-center w-11/12 rounded-lg shadow-2xl ">
       <div className="container">
         <div className="flex flex-wrap center">
           <div className="w-full ">

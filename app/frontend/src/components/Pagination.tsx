@@ -20,9 +20,15 @@ export default function Pagination() {
       >
         Anterior
       </button>
-      <div className="flex items-center justify-center p-3 rounded-lg bg-slate-200 text-xl h-10 w-10">
-        <p className="m-0">
+      <div className="flex items-center justify-center p-3 rounded-lg text-xl h-10 w-10">
+        <p className="m-0 text-2xl">
           {page}
+        </p>
+        <p className="mx-2 text-2xl flex flex-col-reverse py-0">
+          <i className="fa-solid fa-ellipsis py-0" />
+        </p>
+        <p className="m-0 text-2xl">
+          {Math.ceil(total / 8)}
         </p>
       </div>
       <button

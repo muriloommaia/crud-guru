@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { RootState } from '../store';
 import { setLogged } from '../store/loggedSlice';
+import logo from '../images/meuguru.svg';
 
 export default function Header() {
   const isLogged = useSelector((state: RootState) => state.logged.logged);
@@ -14,7 +15,7 @@ export default function Header() {
   return (
     <nav className="flex items-center justify-between flex-wrap px-5">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <img src="./images/meuguru.svg" alt="logo" className="w-8" />
+        <img src={logo} alt="logo" className="hidden sm:block" />
       </div>
       <div className="font-bold flex-wrap flex text-stone-50 text-center text-2xl">
         Teste Prático
