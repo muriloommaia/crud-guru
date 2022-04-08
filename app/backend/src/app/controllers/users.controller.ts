@@ -1,13 +1,13 @@
 import { usersValidator } from '../../validators'
 import { Entity, User } from '../domain'
-import { ResponseController, UserCreate, UserLogin, UserLoginService } from '../interfaces/'
+import { GetUsersType, ResponseController, UserCreate, UserLogin, UserLoginService } from '../interfaces/'
 import { UsersService } from '../services/users.service'
 export class UsersController {
   constructor(
     readonly userService: UsersService
   ) { }
 
-  async getUsers(filter: string, page: number): Promise<ResponseController<UserCreate[]>> {
+  async getUsers(filter: string, page: number): Promise<ResponseController<GetUsersType>> {
     filter = filter || ''
     page = page || 1
     const response = await this.userService.getUsers(filter, page)
@@ -33,11 +33,6 @@ export class UsersController {
     const validate = await usersValidator.update(user)
     const updated = await this.userService.updateUser(id, validate)
     return { status: 200, message: updated }
-  }
-
-  async count(): Promise<ResponseController<number>> {
-    const count = await this.userService.count()
-    return { status: 200, message: count }
   }
 
   async updatePass(id: number, password: string): Promise<ResponseController<string>> {

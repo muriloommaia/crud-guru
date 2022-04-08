@@ -9,6 +9,11 @@ export type UserCreate = {
   email: string
 }
 
+export type GetUsersType = {
+  users: UserCreate[]
+  total: number
+}
+
 export type UserLogin = {
   email: string
   password: string

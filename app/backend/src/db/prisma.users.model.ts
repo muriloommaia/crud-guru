@@ -61,11 +61,6 @@ export class PrismaUsersModel {
     })
   }
 
-  async count(): Promise<number> {
-    const count = await prisma.user.count()
-    return count
-  }
-
   async delete(id: number): Promise<void> {
     await prisma.user.delete({
       where: {

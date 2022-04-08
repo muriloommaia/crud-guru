@@ -1,6 +1,6 @@
 import { Entity, User } from '../domain'
 import { UnauthorizedError } from '../errors'
-import { UserCreate, UserLogin, UserLoginService } from '../interfaces'
+import { GetUsersType, UserCreate, UserLogin, UserLoginService } from '../interfaces'
 import { UsersModel } from '../models/users.model'
 import { decryptPass, encrypt, generateToken } from '../utils'
 
@@ -9,12 +9,16 @@ export class UsersService {
     readonly usersModel: UsersModel
   ) { }
 
-  async getUsers(filter: string, page: number): Promise<UserCreate[]> {
+  async getUsers(filter: string, page: number): Promise<GetUsersType> {
     const take = 8
     const skip = take * (page - 1)
     const response = await this.usersModel.getUsers(filter, take, skip)
-    const user = response.map(({ name, id, email }) => ({ id, name, email }))
-    return user
+    const users = response.map(({ name, id, email }) => ({ id, name, email }))
+    const total = await this.usersModel.getUsers(filter, 200, 0)
+    return {
+      users,
+      total: total.length
+    }
   }
 
   async createUser (user: Omit<User, keyof Entity>): Promise<any> {
@@ -60,11 +64,6 @@ export class UsersService {
   async updatePass(id: number, password: string): Promise<void> {
     const encryptPass = await encrypt(password)
     await this.usersModel.updatePass(id, encryptPass)
-  }
-
-  async count(): Promise<number> {
-    const count = await this.usersModel.count()
-    return count
   }
 
   async deleteUser (id: number): Promise<void> {
