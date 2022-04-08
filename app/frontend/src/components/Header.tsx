@@ -15,7 +15,9 @@ export default function Header() {
   return (
     <nav className="flex items-center flex-col justify-between flex-wrap px-5 sm:flex-row">
       <div className="flex items-center mr-0 mb-4 mt-2 flex-shrink-0 text-white sm:mr-6">
-        <img src={logo} alt="logo" className="" />
+        <a href="https://www.meuguru.net/">
+          <img src={logo} alt="logo" className="" />
+        </a>
       </div>
       <div className="font-bold flex-wrap flex text-stone-50 text-center text-2xl">
         Teste Prático

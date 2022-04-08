@@ -9,6 +9,9 @@ export default function TextPlatform() {
       <p>
         Caso queira editar ou excluir um usuário, basta fazer o login com o devido usuário e aparecerá um botão "editar perfil" no canto superior direito.
       </p>
+      <p>
+        * as senhas dos usuários já cadastrados são "123456"
+      </p>
     </div>
   );
 }

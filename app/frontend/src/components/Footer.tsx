@@ -126,7 +126,11 @@ export default function Footer() {
               DESAFIO TÉCNICO GURU
             </h6>
             <p>
-              Uma aplicação Full-Stack para cadastrar, visualizar, modificar e apagar dados de usuários de uma plataforma.
+              Uma aplicação Full-Stack para cadastrar, visualizar, modificar e apagar dados de usuários de uma plataforma. Você encontra a aplicação
+              {' '}
+              <a href="https://github.com/muriloommaia/crud-guru">neste repositório</a>
+              {' '}
+              com as instruções devidas. Utilize Docker.
             </p>
           </div>
           <div className=" flex flex-col lg:items-end">
@@ -212,7 +216,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="text-center p-6 bg-gray-200" />
+      <div className="text-center p-6 bg-gray-200">
+        <p className="text-gray-700">
+          © 2022 Murilo M. Maia. All rights reserved.
+        </p>
+      </div>
     </footer>
   );
 }
