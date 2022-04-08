@@ -54,7 +54,7 @@ export default function Home() {
         )}
         <TextPlatform />
       </div>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center xl:max-w-screen-2xl m-auto">
         <InputFilter />
         <Table data={data} />
       </div>
