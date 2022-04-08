@@ -7,7 +7,7 @@ const prisma = new PrismaClient()
 const usersMap = [
   {
     name: 'Murilo Maia',
-    email: 'muriloommaia@gmail.com',
+    email: 'muriloommaia@hotmail.com',
     password: '$2a$10$ecpU91vU02C.K66SIDuosuph1oW4XExd7zMuUxwF1CpNJXdVVbxN.'
   },
   {
@@ -37,7 +37,7 @@ const usersMap = [
   },
   {
     name: 'Carolina Silva',
-    email: 'carolinasilva@uol.com',
+    email: 'carolinasilva@gmail.com',
     password: '$2a$10$vGh2zP8701d27uj42pcH9.H7vUsuTBQSGw2c9NFxokn7c/fzkfzOS'
   },
   {

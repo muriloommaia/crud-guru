@@ -1,8 +1,13 @@
 export const seedsMock = [
-  { email: 'muriloommaia@gmail.com', id: 1, name: 'Murilo Maia' },
-  { email: 'lucas@teste.com', id: 2, name: 'Lucas Santos' },
-  { email: 'andresilva@gmail.com', id: 3, name: 'André Silva' },
-  { email: 'micha@teste.com', id: 4, name: 'Michael Caxias' }]
+  { id: 3, name: 'André Silva', email: 'andresilva@gmail.com' },
+  { id: 8, name: 'Caetano Caxias', email: 'caca@teste.com' },
+  { id: 7, name: 'Carolina Silva', email: 'carolinasilva@gmail.com' },
+  { id: 10, name: 'Daiane Ferreira', email: 'daiane@teste.com' },
+  { id: 9, name: 'Fernanda Vasconcelos', email: 'fevas@bing.com' },
+  { id: 12, name: 'Hellen Caxias', email: 'hellen@teste.com' },
+  { id: 6, name: 'Herbert Santos', email: 'herbert@teste.com' },
+  { id: 5, name: 'Joana Andrade', email: 'andradejoana@hotmal.com' }
+]
 
 export const loginValid = {
   email: 'muriloommaia@gmail.com',

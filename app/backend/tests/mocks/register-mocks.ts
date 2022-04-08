@@ -5,7 +5,7 @@ export const registerValid = {
 }
 export const registerResponse = {
   email: 'usuario@gmail.com',
-  id: 5,
+  id: 13,
   name: 'Meu Usuário'
 }
 export const NAME_VALID = 'Meu Usuário'
