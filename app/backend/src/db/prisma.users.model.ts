@@ -10,12 +10,14 @@ export class PrismaUsersModel {
         OR: [
           {
             email: {
-              contains: filter
+              contains: filter,
+              mode: 'insensitive'
             }
           },
           {
             name: {
-              contains: filter
+              contains: filter,
+              mode: 'insensitive'
             }
           }
         ]
