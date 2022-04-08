@@ -12,14 +12,20 @@ export default function Header() {
     dispatch(setLogged(false));
   };
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-violet-900">
+    <nav className="flex items-center justify-between flex-wrap px-5">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <img src="./images/meuguru.svg" alt="logo" className="w-8" />
+      </div>
+      <div className="font-bold flex-wrap flex text-stone-50 text-center text-2xl">
+        Teste Prático
       </div>
       { isLogged ? (
         <div className="flex">
 
-          <Link to="/edit/profile" className="block text-white bg-violet-600 border-violet-800 border-2 rounded-full my-4 px-4 py-2">
+          <Link
+            to="/edit/profile"
+            className="transition duration-200 ease-in block bg-green-400 border-violet-800 border-2 rounded-full m-4 px-4 py-2 text-black font-semibold hover:bg-green-500"
+          >
             Editar Perfil
           </Link>
           <button
@@ -33,7 +39,7 @@ export default function Header() {
       ) : (
         <div className="flex">
 
-          <Link to="/login" className="block text-white bg-green-600 border-violet-800 border-2 rounded-full my-4 px-4 py-2">
+          <Link to="/login" className="transition duration-200 ease-in block bg-green-400 border-violet-800 border-2 rounded-full my-4 px-7 py-2 text-black font-bold hover:bg-green-500 ">
             Login
           </Link>
         </div>

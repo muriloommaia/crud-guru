@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import InputFilter from '../components/InputFilter';
 import Pagination from '../components/Pagination';
 import Table from '../components/Table';
+import TextPlatform from '../components/TextPlataform';
 import { requestData } from '../services/requests';
 import { RootState } from '../store';
 import { setTotal } from '../store/totalUsersSlice';
@@ -39,22 +40,19 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className="flex flex-col flex-wrap">
+      <div className="flex flex-col bg-violet-900 py-5 text-stone-50">
         {(isLogged && user) && (
-        <h1>
-          Olá,
-          {' '}
-          {user.name}
-          {' '}
-          seja bem vindo a nossa plataforma!
-        </h1>
+          <div className="flex flex-col flex-wrap text-center text-xl font-serif ">
+            <h1>
+              Olá,
+              {' '}
+              {user.name}
+              {' '}
+              seja bem vindo à nossa plataforma!
+            </h1>
+          </div>
         )}
-        <p>
-          Nesta plataforma você pode ver todos os usuários cadastrados através da tabela abaixo.
-        </p>
-        <p>
-          Caso queira editar ou excluir um usuário, basta fazer o login com o devido usuário e aparecerá um botão "editar perfil" no canto superior direito.
-        </p>
+        <TextPlatform />
       </div>
       <div className="flex flex-col items-center">
         <InputFilter />

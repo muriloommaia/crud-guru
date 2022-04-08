@@ -14,13 +14,12 @@ export default function InputFilter() {
   return (
     <div className="flex items-center">
       <div className="bg-grey col-12 mt-3 align-middle justify-content-center flex">
-        <input type="search" className="col-8 border-2 p-2" placeholder="Search for name or email" id="search-filter" name="filter" onChange={eventChange} value={filter} />
+        <input type="search" className="col-8 border-2 p-2 rounded-xl text-center" placeholder="Search for name or email" id="search-filter" name="filter" onChange={eventChange} value={filter} />
       </div>
-      <div>
+      <div className="text-stone-50">
         <p>
           {total}
-          {' '}
-          usuários encontrados
+          <i className="fa-solid fa-users" />
         </p>
       </div>
     </div>
