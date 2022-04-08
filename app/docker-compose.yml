@@ -23,7 +23,7 @@ services:
     environment:
      - DATABASE_URL=postgres://guruuser:gurupass@db:5432/gurudb
      - PORT=3001
-     - JWT_SECRET=secret
+     - SECRET_JWT=secret
   db:
     image: postgres:14
     container_name: db
