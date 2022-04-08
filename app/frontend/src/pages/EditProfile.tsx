@@ -57,17 +57,17 @@ export default function EditProfile() {
 
   if (edit) return <Navigate to="/home" />;
   return (
-    <div className="h-screen font-sans login bg-cover bg-indigo-700">
+    <div className="h-screen login bg-cover bg-violet-900">
       <div className="container mx-auto h-full flex flex-1 justify-center items-center">
-        <div className="w-full max-w-lg">
+        <div className="w-full max-w-lg justify-center">
           <div className="leading-loose">
-            <form className="max-w-sm m-4 p-10 bg-white bg-opacity-25 rounded shadow-xl">
+            <form className="max-w-sm m-4 p-10 bg-white bg-opacity-10 rounded-lg shadow-xl pb-5">
               <p className="text-white text-center text-lg font-bold">EDITAR PERFIL</p>
               <div className="">
                 <label className="block text-sm text-white" htmlFor="email">
                   E-mail
                   <input
-                    className="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+                    className="w-full px-5 py-2 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
                     type="email"
                     id="email"
                     name="email"
@@ -84,7 +84,7 @@ export default function EditProfile() {
                 <label className="block  text-sm text-white" htmlFor="name">
                   Nome
                   <input
-                    className="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+                    className="w-full px-5 py-2 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
                     type="name"
                     id="name"
                     name="name"
@@ -98,9 +98,9 @@ export default function EditProfile() {
                 </label>
               </div>
 
-              <div className="mt-4 items-center flex justify-between">
+              <div className="mt-4 mb-6 items-center flex justify-between">
                 <button
-                  className="px-4 py-1 text-white font-light tracking-wider disabled:opacity-70 bg-gray-900 hover:bg-gray-800 rounded"
+                  className="px-6 border-green-300 border-2 py-1 text-white  tracking-wider bg-green-500 hover:bg-green-700 rounded disabled:opacity-80"
                   type="button"
                   disabled={verifyChange(email, name)}
                   onClick={(e) => buttonClick(e)}
@@ -108,7 +108,7 @@ export default function EditProfile() {
                   Alterar
                 </button>
                 <button
-                  className="px-4 py-1 text-white font-light tracking-wider disabled:opacity-70 bg-red-900 hover:bg-gray-800 rounded"
+                  className="px-4 py-1 text-white font-light tracking-wider disabled:opacity-70 bg-red-600 hover:bg-red-800 border-2 border-red-400 rounded"
                   type="button"
                   onClick={(e) => removeUser(e)}
                 >
@@ -118,7 +118,7 @@ export default function EditProfile() {
               <div className="text-center">
                 <Link to="/home" className="text-white text-sm">
                   <div
-                    className="inline-block right-0 align-baseline font-light text-sm text-500 hover:text-red-400"
+                    className="inline-block right-0 align-baseline font-light text-base text-500 hover:text-red-400"
                   >
                     Retornar à Home
                   </div>
