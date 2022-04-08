@@ -11,7 +11,10 @@
     "install:frontend": "cd ./app/frontend && npm install",
     "start:app": "npm run start:backend && npm run start:frontend",
     "start:backend": "cd ./app/backend && npm start &",
-    "start:frontend": "cd ./app/frontend && npm start &"
+    "start:frontend": "cd ./app/frontend && npm start &",
+    "test:backend": "cd ./app/backend && npm test",
+    "test:backend:coverage": "cd ./app/backend && npm run test:coverage"
+
   },
   "repository": {
     "type": "git",

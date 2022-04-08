@@ -160,6 +160,21 @@ Após a finalização o aplicativo estará rodando na porta `3000` do seu comput
 
 > O back e o front estarão rodando nas portas `3001` e `3000` respectivamente, então é importante que estas portas estejam liberadas no seu servidor.
 
+### Testando o projeto
+
+#### TESTES
+
+```
+npm run test:backend
+```
+
+#### COBERTURA DE TESTES
+
+```
+npm run test:backend:coverage
+```
+
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
