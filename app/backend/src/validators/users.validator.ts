@@ -27,12 +27,12 @@ export const usersValidator = {
     })
     const result = await schema.validateAsync(value)
     return result
-  },
-  async updatePass(value: any): Promise<UserCreate> {
-    const schema = Joi.object({
-      password: Joi.string().min(6).required()
-    })
-    const result = await schema.validateAsync(value)
-    return result
   }
+  // async updatePass(value: any): Promise<UserCreate> {
+  //   const schema = Joi.object({
+  //     password: Joi.string().min(6).required()
+  //   })
+  //   const result = await schema.validateAsync(value)
+  //   return result
+  // }
 }

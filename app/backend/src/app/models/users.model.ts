@@ -27,9 +27,9 @@ export class UsersModel {
     return update
   }
 
-  async updatePass(id: number, password: string): Promise<void> {
-    await this.db.updatePass(id, password)
-  }
+  // async updatePass(id: number, password: string): Promise<void> {
+  //   await this.db.updatePass(id, password)
+  // }
 
   async delete(id: number): Promise<void> {
     await this.db.delete(id)

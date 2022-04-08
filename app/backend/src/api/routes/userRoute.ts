@@ -32,12 +32,12 @@ const update = async (req: Request, res: Response): Promise<void> => {
   res.status(status).json(message)
 }
 
-const updatePass = async (req: Request, res: Response): Promise<void> => {
-  const { password } = req.body
-  const { id } = req.params
-  const { status, message } = await userController.updatePass(+id, password)
-  res.status(status).json(message)
-}
+// const updatePass = async (req: Request, res: Response): Promise<void> => {
+//   const { password } = req.body
+//   const { id } = req.params
+//   const { status, message } = await userController.updatePass(+id, password)
+//   res.status(status).json(message)
+// }
 
 const deleteU = async (req: Request, res: Response): Promise<void> => {
   const { id } = req.params
@@ -55,7 +55,7 @@ userRoute.get('/', read)
 userRoute.use(authenticateToken)
 
 // Validação se o usuário tem permissão para as alterações
-userRoute.put('/:id/update/pass', validUser, updatePass)
+// userRoute.put('/:id/update/pass', validUser, updatePass)
 
 userRoute.put('/:id/update', validUser, update)
 
