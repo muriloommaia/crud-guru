@@ -88,7 +88,7 @@ export default function Login() {
                 </Link>
                 <button
                   className="px-6 border-green-300 border-2 py-1 text-white  tracking-wider bg-green-500 hover:bg-green-700 rounded disabled:opacity-80"
-                  type="submit"
+                  type="button"
                   disabled={verifyLogin(email, password)}
                   onClick={(e) => login(e)}
                 >
