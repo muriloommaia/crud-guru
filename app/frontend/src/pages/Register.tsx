@@ -102,11 +102,11 @@ export default function Register() {
                 </button>
               </div>
               <div className="text-center">
-                <Link to="/" className="text-white text-sm">
+                <Link to="/home" className="text-white text-sm">
                   <div
                     className="inline-block right-0 align-baseline font-light text-sm text-500 hover:text-red-400"
                   >
-                    Retornar para Login
+                    Retornar para Home
                   </div>
                 </Link>
               </div>

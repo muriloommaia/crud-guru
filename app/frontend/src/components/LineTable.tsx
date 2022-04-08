@@ -1,7 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store';
 import { UserRender } from '../Types/UserTypes';
 
 export default function LineTable({ user, idx }: { user: UserRender, idx: number }) {
+  const { actualPage: { page } } = useSelector((state: RootState) => state);
+
   const { email, name } = user;
   return (
     <tr className="odd:bg-indigo-600">
@@ -16,7 +20,7 @@ export default function LineTable({ user, idx }: { user: UserRender, idx: number
           border-b border-l border-[#E8E8E8]
           "
       >
-        {idx + 1}
+        {idx + 1 + (page - 1) * 8}
       </td>
       <td
         className="

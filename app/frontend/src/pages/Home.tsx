@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../components/Header';
 import InputFilter from '../components/InputFilter';
-import Pagination from '../components/Pagination';
 import Table from '../components/Table';
 import TextPlatform from '../components/TextPlataform';
 import { requestData } from '../services/requests';
@@ -58,7 +57,6 @@ export default function Home() {
         <InputFilter />
         <Table data={data} />
       </div>
-      <Pagination />
     </div>
   );
 }

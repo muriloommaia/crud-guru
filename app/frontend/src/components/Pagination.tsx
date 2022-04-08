@@ -12,24 +12,26 @@ export default function Pagination() {
   return (
     <div className="flex justify-around">
       <button
-        className={`bg-gray-300  text-gray-800 font-bold py-2 px-4 rounded-l ${page === 1 ? 'disabled:opacity-50 cursor-not-allowed' : 'hover:bg-gray-400'}`}
+        className={`bg-gray-300  text-gray-800 font-bold py-2 px-4 rounded-lg ${page === 1 ? 'opacity-0 cursor-auto' : 'hover:bg-gray-400'}`}
+        disabled={page === 1}
         type="button"
         onClick={() => pagination(-1)}
 
       >
-        Prev
+        Anterior
       </button>
-      <div className="flex items-center justify-center p-3 rounded-full bg-slate-200 text-xl h-10 w-10">
+      <div className="flex items-center justify-center p-3 rounded-lg bg-slate-200 text-xl h-10 w-10">
         <p className="m-0">
           {page}
         </p>
       </div>
       <button
-        className={`bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-r ${page === Math.ceil(total / 8) ? 'disabled:opacity-50 cursor-not-allowed' : 'hover:bg-gray-400'}`}
+        className={`bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg ${page === Math.ceil(total / 8) ? 'opacity-0 cursor-auto' : 'hover:bg-gray-400'}`}
         type="button"
+        disabled={page === Math.ceil(total / 8)}
         onClick={() => pagination(1)}
       >
-        Next
+        Próximo
       </button>
     </div>
   );

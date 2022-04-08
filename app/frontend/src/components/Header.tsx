@@ -24,7 +24,7 @@ export default function Header() {
 
           <Link
             to="/edit/profile"
-            className="transition duration-200 ease-in block bg-green-400 border-violet-800 border-2 rounded-full m-4 px-4 py-2 text-black font-semibold hover:bg-green-500"
+            className="transition duration-200 ease-in block bg-green-400 border-violet-800 border-2 rounded-full m-4 px-4 py-2 text-slate-50 font-semibold hover:bg-green-600"
           >
             Editar Perfil
           </Link>

@@ -1,21 +1,22 @@
 import React from 'react';
 import { UserRender } from '../Types/UserTypes';
 import LineTable from './LineTable';
+import Pagination from './Pagination';
 
 export default function Table({ data }: { data: UserRender[] }) {
   return (
-    <section className="flex flex-col bg-blue-900 py-5 lg:py-5 items-center w-11/12">
+    <section className="flex flex-col bg-green-500 items-center w-11/12 rounded-lg shadow-2xl">
       <div className="container">
-        <div className="flex flex-wrap -mx-4 center">
-          <div className="w-full px-4">
+        <div className="flex flex-wrap center">
+          <div className="w-full ">
             <div className="max-w-full overflow-x-auto">
               <table className="table-auto w-full">
                 <thead className="rounded-lg">
                   <tr className="bg-primary text-center">
                     <th
                       className="
-                           w-1/6
-                           min-w-[160px]
+                           w-1/12
+                           min-w-[120px]
                            text-lg
                            font-semibold
                            text-white
@@ -26,7 +27,7 @@ export default function Table({ data }: { data: UserRender[] }) {
                            border-l border-transparent
                            "
                     >
-                      Id
+                      Posição
                     </th>
                     <th
                       className="
@@ -41,7 +42,7 @@ export default function Table({ data }: { data: UserRender[] }) {
                            lg:px-4
                            "
                     >
-                      Name
+                      Nome
                     </th>
                     <th
                       className="
@@ -60,7 +61,7 @@ export default function Table({ data }: { data: UserRender[] }) {
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className=" min-h-[955px]">
                   {data.map((user, idx) => (
                     <LineTable key={user.id} user={user} idx={idx} />
                   ))}
@@ -69,6 +70,9 @@ export default function Table({ data }: { data: UserRender[] }) {
             </div>
           </div>
         </div>
+      </div>
+      <div className="pt-4 pb-3 w-11/12">
+        <Pagination />
       </div>
     </section>
   );
