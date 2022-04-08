@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "compose:up": "(cd app && docker-compose up -d --build)",
-    "compose:down": "(cd app && docker-compose down)"
+    "compose:down": "(cd app && docker-compose down)",
+    "install:app": "npm run install:backend && npm run install:frontend",
+    "install:backend": "cd ./app/backend && npm install",
+    "install:frontend": "cd ./app/frontend && npm install",
+    "start:app": "npm run start:backend && npm run start:frontend",
+    "start:backend": "cd ./app/backend && npm start &",
+    "start:frontend": "cd ./app/frontend && npm start &"
   },
   "repository": {
     "type": "git",
