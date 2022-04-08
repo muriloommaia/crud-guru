@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function TextPlataform() {
+export default function TextPlatform() {
   return (
-    <div className="flex flex-col flex-wrap text-center text-xl font-serif w-11/12 m-auto">
+    <div className="flex flex-col flex-wrap text-center text-xl w-11/12 m-auto">
       <p>
         Nesta plataforma você pode ver todos os usuários cadastrados através da tabela abaixo.
       </p>
