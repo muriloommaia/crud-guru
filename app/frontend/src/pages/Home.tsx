@@ -42,7 +42,7 @@ export default function Home() {
       <Header />
       <div className="flex flex-col bg-violet-900 py-5 text-stone-50">
         {(isLogged && user) && (
-          <div className="flex flex-col flex-wrap text-center text-xl font-serif ">
+          <div className="flex flex-col flex-wrap text-center text-2xl">
             <h1>
               Olá,
               {' '}
