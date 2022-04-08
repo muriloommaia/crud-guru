@@ -21,6 +21,9 @@ export class PrismaUsersModel {
             }
           }
         ]
+      },
+      orderBy: {
+        name: 'asc'
       }
     })
     return users
