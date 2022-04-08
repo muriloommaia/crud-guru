@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import InputFilter from '../components/InputFilter';
 import Table from '../components/Table';
@@ -56,6 +57,10 @@ export default function Home() {
       <div className="flex flex-col items-center">
         <InputFilter />
         <Table data={data} />
+      </div>
+      <div className="pt-12">
+        <Footer />
+
       </div>
     </div>
   );
