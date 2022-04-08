@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=local ts-node src/api/server",
-    "prestart": "npx prisma generate && npx prisma migrate dev --name init && npx prisma db seed",
+    "prestart": "npx prisma generate && npx prisma migrate reset --force",
     "migrate": "npx prisma migrate dev --name init",
     "seed": "npx prisma db seed",
     "generate": "npx prisma generate",
